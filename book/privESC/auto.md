@@ -1,7 +1,7 @@
 # Automated Enumeration Tools 
 
 *Several tools can help you save time during the enumeration process,
-but it's important that you are able to enumerate without them because of they may miss some privilege escalation vectors.*
+but it's important that you are able to enumerate without them because of they may miss some privilege escalation vectors and declare false positives.*
 
 ## Below is a list of popular Linux enumeration tools with links to their respective Github repositories.
 
