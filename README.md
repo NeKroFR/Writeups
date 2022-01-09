@@ -9,3 +9,6 @@ My personal hacker's guide cheat sheet
 - [enumeration](/book/privESC/enumeration.md)
 - [enumeration scripts](/book/privESC/auto.md)
 - [kernel](/book/privESC/kernel.md)
+
+# Persistance 
+
