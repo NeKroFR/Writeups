@@ -1,4 +1,4 @@
-# The-Hacker-s-guide
+# The-Hacker's-guide
 My personal hacker's guide cheat sheet 
 
 # Recon
@@ -6,3 +6,4 @@ My personal hacker's guide cheat sheet
 # Exploitation
 
 # PrivESC
+- [kernel](/book/privESC/kernel.md)
