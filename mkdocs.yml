@@ -1,0 +1,5 @@
+site_name: The Hacker's Guide
+nav:
+    - Table of contents: table-of-contents.md
+    - Contribute: contribute.md
+theme: readthedocs
