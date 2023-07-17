@@ -3,3 +3,5 @@ nav:
     - Table of contents: table-of-contents.md
     - Contribute: contribute.md
 theme: readthedocs
+repo_url: https://github.com/NeKroFR/The-Hacker-s-guide
+use_directory_urls: false
