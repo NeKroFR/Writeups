@@ -1,14 +1,9 @@
-# The-Hacker's-guide
-My personal hacker's guide cheat sheet 
+# The Hacker's guide
+My personal hacker's guide cheat sheet.
 
-# Recon
+## [table of content](table-of-contents.md)
 
-# Exploitation
+This project is almost empty. I may will add more content when I will have the time. You can also contribute [here](/contribute.md) if you want. 
 
-# PrivESC
-- [enumeration](/book/privESC/enumeration.md)
-- [enumeration scripts](/book/privESC/auto.md)
-- [kernel](/book/privESC/kernel.md)
 
-# Persistance 
 
