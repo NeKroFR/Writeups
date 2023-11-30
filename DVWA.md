@@ -23,9 +23,6 @@
 
 # Security Level - Medium
 
-
-## Name Number of points Points
-
 ## JavaScript
 
 ## Command Injection
@@ -47,9 +44,6 @@
 ## SQL Injection (blind)
 
 # Security Level - Hard
-
-
-## Name Number of points Points
 
 ## JavaScript
 
