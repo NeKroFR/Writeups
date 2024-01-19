@@ -41,8 +41,6 @@ print(encrypt(flag, e, n))
 ```
 And that's it.
 
-<img width="500" src="https://i.imgflip.com/8cvxd7.jpg">
-
 After a lot of guessing and an interesting hint: `«le Q(7) et P(7) c'était une super idée. Regarde en quelles conditions c'est intéressant de faire ça» -- Chelinka`
 
 We found this writeup: https://ctftime.org/writeup/22977 about a similar chall.
