@@ -62,5 +62,6 @@ assert p*q == n
 d = inverse_mod(e, (p-1)*(q-1))
 print(long_to_bytes(pow(c, d, n)))
 ```
-wich gives us this output: `b'ajniN eturB - EVE locotorp wolloF - denwp tidnaB SD'`. Reversing the string we obtain: `DS Bandit pwned - Follow protocol EVE - Brute Ninja`.
+wich gives us this output: `b'ajniN eturB - EVE locotorp wolloF - denwp tidnaB SD'`.
+Reversing the string we obtain: `DS Bandit pwned - Follow protocol EVE - Brute Ninja`.
 And boom we have the flag wich is in this format: `HACKDAY{PROTOCOL}`
