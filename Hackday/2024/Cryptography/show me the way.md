@@ -41,9 +41,9 @@ print(encrypt(flag, e, n))
 ```
 And that's it.
 
-After a lot of guessing and an interesting hint: `«le Q(7) et P(7) c'était une super idée. Regarde en quelles conditions c'est intéressant de faire ça» -- Chelinka`
+After a lot of guessing we can see that the number **7** appears frequently on the description of the chall.
 
-We found this writeup: https://ctftime.org/writeup/22977 about a similar chall.
+We also found this writeup: https://ctftime.org/writeup/22977 about a similar chall.
 
 from it we could write this sage script:
 ```sage
