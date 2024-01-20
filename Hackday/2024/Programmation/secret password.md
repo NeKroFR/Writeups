@@ -14,7 +14,7 @@ Bad length input. Expected 4, got 5
 >>> abcde
 1 character are correct 
 ```
-It seems like we need to guess a 6 chars strings to get the password, let's write a script to bruteforce it.
+It seems like we need to guess a 5 chars strings to get the password, let's write a script to bruteforce it.
 
  ```py
 
