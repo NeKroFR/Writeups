@@ -85,7 +85,7 @@ while True:
 And after some guessing we get:
 
 ```py
-P1 = b"Welcome to our irc server, AntiRickRoll. I hope you haven't had too much trouble along the way. We'll be able to "
+P2 = b' - Hack107 putting the accent on the seven.\n'
 ```
 
 Then we can get the other plaintext with this simple script:
@@ -95,7 +95,6 @@ import base64
 def xor(a, b):
     return bytes([x ^ y for x, y in zip(a, b)])
 
-p1 = b"Welcome to our irc server, AntiRickRoll. I hope you haven't had too much trouble along the way. We'll be able to "
 c1 = base64.b64decode("YiEjKycKVGgHX3UFFxVCKAsPVBYIPBEdF3xtKDgEXWMGJAEXLC5ZQFg4bl82RjNnLwlDUQwoHSdabzxCXy00ZE0oFlg5ODpZV0cUARcpNC9UNVs9XDRPAA4cFBAANllSMiRCCFxEDxZnWDIrN2wVPWwpCCIhETknTkYONjhGTgU+HwcXZgICEl1VFE0VKCFeSTk5EVJMTBsPVxBfA0slPCBQEwAHPxZ5PD9HOj8BMWEKJSFHKzhZH2sJOBAncUdtZFYgMiUBRX5/YhscABUEJyoZMVwjbTQCLlNfM0UtLHE4LicUJgBEIi10bg==")
 c2 = base64.b64decode("FWlvACkEWnlDB3UaFxMWKBcLVBEFK0cZBjMoByJQW19PMwIgYzFQGB0fYD0=")
 c3 = base64.b64decode("ZSgqKTsCETsWXjFKDwJCOBYZBkUMKgMKACM+RXYEXFQBZxMqNjAVGhcaK1l1FjcpMkZ/VgglSyZbaDwKUmwiIUozV1h5bRFQFFhXXlVrKD8AIF48VXMbHANZVQQCKhkGRS4LREQMCFM0XCYiPGJr")
@@ -103,7 +102,9 @@ c4 = base64.b64decode("ZSE9Li0ERWlTfSxKDAIVYRgIEBcIPRRYDCNtHzccUR8cJAsjIjZcXkoxK
 P1xorP2 = xor(c1, c2)
 P1xorP3 = xor(c1, c3)
 P1xorP4 = xor(c1, c4)
+p2 = b' - Hack107 putting the accent on the seven.\n'
 
+p1 = xor(p2, P1xorP2)
 print(p1)
 print(xor(p1, P1xorP2))
 print(xor(p1, P1xorP3))
