@@ -88,7 +88,7 @@ And after some guessing we get:
 P1 = b"Welcome to our irc server, AntiRickRoll. I hope you haven't had too much trouble along the way. We'll be able to "
 ```
 
-Then we can guess the other plaintext with this simple script:
+Then we can get the other plaintext with this simple script:
 ```py
 import base64
 
