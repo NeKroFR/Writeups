@@ -336,7 +336,7 @@ void do_ping(void)
 }
 ```
 
-looking back at `my_app`` we can see that the main function call `do_ping`.
+looking back at `my_app` we can see that the main function call `do_ping`.
 ```c
 undefined8 main(void)
 
@@ -507,6 +507,6 @@ john@10.10.128.41: Permission denied (publickey).
 Just create a key and add it to john authorized keys and try again.
 ```
 >>> ssh john@IP
->> /var/nfs/suid -p?
+>> /var/nfs/suid -p
 ```
 Well done we are now root :)
