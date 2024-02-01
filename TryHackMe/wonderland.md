@@ -5,25 +5,28 @@
 ## nmap
 
 ```
->>> nmap -sC -sV 10.10.130.186
-Starting Nmap 7.80 ( https://nmap.org ) at 2024-01-31 11:08 CET
-Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
-Nmap done: 1 IP address (0 hosts up) scanned in 3.48 seconds
+>>> nmap -sC -sV 10.10.152.179    
 
->>> nmap -sC -sV -Pn 10.10.130.186
-Starting Nmap 7.80 ( https://nmap.org ) at 2024-01-31 11:09 CET
-Nmap scan report for 10.10.130.186
-Host is up (0.056s latency).
-All 1000 scanned ports on 10.10.130.186 are closed
+Starting Nmap 7.80 ( https://nmap.org ) at 2024-02-01 14:06 CET
+Nmap scan report for 10.10.152.179
+Host is up (0.035s latency).
+Not shown: 998 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 8e:ee:fb:96:ce:ad:70:dd:05:a9:3b:0d:b0:71:b8:63 (RSA)
+|   256 7a:92:79:44:16:4f:20:43:50:a9:a8:47:e2:c2:be:84 (ECDSA)
+|_  256 00:0b:80:44:e6:3d:4b:69:47:92:2c:55:14:7e:2a:c9 (ED25519)
+80/tcp open  http    Golang net/http server (Go-IPFS json-rpc or InfluxDB API)
+|_http-title: Follow the white rabbit.
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 5.03 seconds
+Nmap done: 1 IP address (1 host up) scanned in 21.49 seconds
 ```
-Seems like we can't scan the machine because when I add the IP on internet, I have this website:
+## port 80:
 
 ![Alt text](https://i.imgur.com/lRgLomH.png)
-
-So we know that the port 80 is opened.
 
 looking a bit more at the page we can see that the image is stored at: `http://IP/img/white_rabbit_1.jpg`
 
