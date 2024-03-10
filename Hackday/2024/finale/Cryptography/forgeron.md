@@ -32,7 +32,7 @@ Enter your choice >
 The challenge ask us to generate a valid signature.
 Due to the fact that we have acess to the signatures of the words  `potato` `tomato` and `carrot`, we can simply multiply the bytes of two words, `potato` and `tomato` for example and the signature will simply be the multiplaction of their signatures:
 
-$x1 = s1$ ^ $x2 = s2 \Rightarrow x1*x2 = s1*s2$
+$x1 = s1$ ^ $x2 = s2 \Rightarrow x1x2 = s1s2$  
 
 We can do it with this script:
 ```py
