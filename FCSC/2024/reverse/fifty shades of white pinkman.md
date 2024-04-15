@@ -1,4 +1,4 @@
-Fifty Shades of White (Pinkman) - 219
+# Fifty Shades of White (Pinkman) - 219
 
 Looking at the chall we can see that it is the same binary as [Fifty Shades of White (Junior)](/FCSC/2024/intro/fifty%20shades%20of%20white%20junior.md). We just need to make a keygen. To do so, we will take our previous script to generate admin licenses.
 
