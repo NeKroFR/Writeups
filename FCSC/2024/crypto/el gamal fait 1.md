@@ -2,7 +2,13 @@
 
 The service sign messages using El Gamal vulnerable to forgery attacks.
 
-TODO: https://ctftime.org/writeup/30186
+Looking to [wikipedia](https://en.wikipedia.org/wiki/ElGamal_signature_scheme#Existential_forgery), we can see this:
+![alt-text](https://i.imgur.com/5YGzS9H.png)
+
+So we can take $e = 1$ and we have:
+$r = gy$ [p]
+and
+$s = -r$ [p-1]
 
 ```py
 from random import randint
