@@ -59,7 +59,7 @@ strchr(input, 125) != &input[n - 1]
 
 Solving this simple equation we get: `cha1}`
 
-Finnally it compute some xor beetween `flag_xored` and `xored`.
+Finally it compute some xor beetween `flag_xored` and `xored`.
 
 Dumping those variables we can make this solve script:
 
