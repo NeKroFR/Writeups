@@ -92,32 +92,6 @@ Then we will use the extended Euclidean algorithm to compute a valid signature u
 from pwn import *
 import hashlib
 from Crypto.Util.number import bytes_to_long, long_to_bytes
-import math
-
-def extended_gcd(a, b):
-    if a == 0:
-        return (b, 0, 1)
-    else:
-        g, y, x = extended_gcd(b % a, a)
-        return (g, x - (b // a) * y, y)
-
-def mod_pow(base, exp, mod):
-    if exp >= 0:
-        return pow(base, exp, mod)
-    else:
-        inverse = pow(base, -1, mod)
-        return pow(inverse, -exp, mod)
-
-def find_co_prime_pair(h_list):
-    for i in range(len(h_list)):
-        for j in range(i + 1, len(h_list)):
-            h1 = h_list[i]
-            h2 = h_list[j]
-            g, _, _ = extended_gcd(h1, h2)
-            if g == 1:from pwn import *
-import hashlib
-from Crypto.Util.number import bytes_to_long, long_to_bytes
-import math
 
 def extended_gcd(a, b):
     if a == 0:
