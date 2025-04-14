@@ -79,12 +79,6 @@ def shuffle(deck, seed):
         deck[i], deck[j] = deck[j], deck[i]
     return deck
 
-def shuffle(deck, seed):
-    state = int(seed, 16)
-    for i in range(51, -1, -1):
-        state = lcg(state)
-        j = state % (i + 1)
-        deck[i], deck[j] = deck[j], deck[i]
 
 cards = ['sA', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 'sX', 'sJ', 'sQ', 'sK',
          'hA', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'hX', 'hJ', 'hQ', 'hK',
