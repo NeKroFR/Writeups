@@ -3,6 +3,7 @@
 The service sign messages using El Gamal vulnerable to forgery attacks.
 
 Looking to [wikipedia](https://en.wikipedia.org/wiki/ElGamal_signature_scheme#Existential_forgery), we can see this:
+
 ![alt-text](https://i.imgur.com/5YGzS9H.png)
 
 So we can take $e = 1$ and we have:
