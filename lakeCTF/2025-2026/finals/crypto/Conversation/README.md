@@ -42,7 +42,9 @@ $\widehat{p} = \texttt{nextprime}(K \cdot 2^{141})$ means $\widehat{p} \bmod 2^{
 
 For each candidate $g \in [1, 2^{16}[$ we run
 
-$$f(x) = x + g \cdot (2^{141})^{-1} \pmod{\widehat{N}}, \qquad \texttt{small\_roots}(X = 2^{115}, \beta = 0.49).$$
+$$f(x) = x + g \cdot (2^{141})^{-1} \pmod{\widehat{N}}$$
+
+and call `small_roots(X = 2^115, beta = 0.49)`.
 
 The unique $g$ for which a root exists yields $K$, hence $\widehat{p} = K \cdot 2^{141} + g$.
 
