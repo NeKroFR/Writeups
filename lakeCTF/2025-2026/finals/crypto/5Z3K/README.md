@@ -2,13 +2,13 @@
 
 This is an interactive MPC in the Head ZKP system from the recent [ZK-for-Z2K paper, eprint 2023/1057](https://eprint.iacr.org/2023/1057.pdf) (Braun, Delpech de Saint Guilhem, Jadoul, Orsini, Smart, Tanguy). The prover claims to know an AES-128 key that maps the all-zero plaintext to the all-zero ciphertext (mod $2^{32}$, so the relation is actually false). We need to convince the verifier to get the flag.
 
-We are given the full reference implementation under [dist/5z3k-dist](./dist/5z3k-dist/): [verifier.py](./dist/5z3k-dist/verifier.py), [party.py](./dist/5z3k-dist/party.py), [sharing.py](./dist/5z3k-dist/sharing.py), [galois_ring.py](./dist/5z3k-dist/galois_ring.py), [circuit.py](./dist/5z3k-dist/circuit.py), [params.py](./dist/5z3k-dist/params.py), and the Bristol-fashion AES circuit.
+We are given the full reference implementation under [given-files/dist/5z3k-dist](./given-files/dist/5z3k-dist/): [verifier.py](./given-files/dist/5z3k-dist/verifier.py), [party.py](./given-files/dist/5z3k-dist/party.py), [sharing.py](./given-files/dist/5z3k-dist/sharing.py), [galois_ring.py](./given-files/dist/5z3k-dist/galois_ring.py), [circuit.py](./given-files/dist/5z3k-dist/circuit.py), [params.py](./given-files/dist/5z3k-dist/params.py), and the Bristol-fashion AES circuit.
 
 The bug is an honest-to-god soundness flaw in the compressed multiplication check (3.3 of the paper): the implementation never links round $j$'s $c$-hints to round $j-1$'s $z$, which severs the protocol's only invariant. A cheating prover can run an *honest* compression on a *forged* extended witness.
 
 ## Parameters
 
-[params.py](./dist/5z3k-dist/params.py) instantiates Table 3 of the paper:
+[params.py](./given-files/dist/5z3k-dist/params.py) instantiates Table 3 of the paper:
 
 ```python
 K = 32; N = 63; T = 1; S_RC = 17
@@ -22,7 +22,7 @@ The circuit is AES-128 (6400 ANDs, padded with dummy multiplications to $4^7 = 1
 
 ## What the verifier does
 
-For each of $\tau_\text{out} = 7$ repetitions, [verifier.py](./dist/5z3k-dist/verifier.py):
+For each of $\tau_\text{out} = 7$ repetitions, [verifier.py](./given-files/dist/5z3k-dist/verifier.py):
 
 1. asks for $N = 63$ commitments to per-party input hints, releases the `ring_check` randomness, reads back the claimed value $v_\text{RC}$.
 2. asks for $N$ commitments to per-party extended-witness hints (one $\mathbb{Z}_{2^{32}}$ per multiplication gate).
@@ -39,7 +39,7 @@ $$z^{j-1} \;=\; \sum_{i=1}^{\nu} c_i^{j},$$
 
 because $\boldsymbol{x}^{j-1} = \boldsymbol{a}_1 \| \cdots \| \boldsymbol{a}_\nu$, $\boldsymbol{y}^{j-1} = \boldsymbol{b}_1 \| \cdots \| \boldsymbol{b}_\nu$, so $z^{j-1} = \langle \boldsymbol{x}^{j-1}, \boldsymbol{y}^{j-1}\rangle = \sum_i \langle \boldsymbol{a}_i, \boldsymbol{b}_i\rangle = \sum_i c_i$. Without this link, the chain of (in)correctness from Lemma 3.1 ("If one of the inner product tuples … is incorrect, …, then the output inner tuple is also incorrect") fires only locally inside one $\Pi_\text{Compress}$ call. Across rounds, the prover gets to *reset* the constraint.
 
-Now look at `party.mul_check` in [party.py](./dist/5z3k-dist/party.py):
+Now look at `party.mul_check` in [party.py](./given-files/dist/5z3k-dist/party.py):
 
 ```python
 def mul_check(self, seeds):
