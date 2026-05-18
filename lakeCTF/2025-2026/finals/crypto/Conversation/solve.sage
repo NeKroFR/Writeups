@@ -31,7 +31,7 @@ def factor_Nhat(Nh):
             if ph > 1 and Nh % ph == 0:
                 return ph, Nh // ph
 
-def ppe_recover_y(N, e, p0, delta=0.615, gamma=0.28, m=3):
+def ppe_recover_y(N, e, p0, delta=0.615, gamma=0.28, m=2):
     pr = ZZ['v, y, z']
     v, y, z = pr.gens()
     q0 = N // p0
@@ -51,7 +51,7 @@ def ppe_recover_y(N, e, p0, delta=0.615, gamma=0.28, m=3):
             shifts.append(qr(y^j * f^u * e^(m-u)).lift())
 
     pr2 = pr.change_ring(ZZ, order='invlex')
-    shifts = [pr2(s) for s in shifts]
+    shifts = sorted(pr2(s) for s in shifts)
     mons = sorted({mn for s in shifts for mn in s.monomials()})
     L = matrix(ZZ, len(shifts), len(mons))
     for r, s in enumerate(shifts):

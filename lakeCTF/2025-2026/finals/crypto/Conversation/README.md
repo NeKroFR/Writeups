@@ -120,7 +120,7 @@ Once $y_0$ is out, $p + q = y_0 + p_0 + q_0$ and $pq = N$. Two equations, quadra
 
 $$p, q = \frac{S \pm \sqrt{S^2 - 4N}}{2}, \quad S = y_0 + p_0 + q_0.$$
 
-With $m = 3, \tau = 1$ the lattice is $26$-dimensional and finishes LLL + Groebner in seconds.
+With $m = 2, \tau = 1$ the lattice is $15$-dimensional and finishes LLL + Groebner in seconds. Catch: sort the shifts (`invlex` order) before building $L$. At $m=2$ the lattice is tight enough that row order decides whether LLL finds useful short vectors. At $m=3$ there's enough slack you can skip it.
 
 ## Step 3: invert the scalar multiplication
 
